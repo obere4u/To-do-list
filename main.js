@@ -25,7 +25,7 @@ function addToList(e) {
     todoDiv.appendChild(newTodo);
 
     //Add to local Storage
-    saveLocalTodos
+    saveLocalTodos(todoInput.value);
 
 
     //Check completed button
@@ -53,10 +53,10 @@ function deleteCheck(e) {
 
     //Delete TodoItem
     if (item.classList[0] === "trash-btn") {
-        const todo = item.parentElement;
-        todo.remove();
+      const todo = item.parentElement;
+      todo.remove();
+      console.log(1);
     }
-    console.log(1)
 }
 
 function completeCheck(e) {
@@ -68,7 +68,7 @@ function completeCheck(e) {
     }
 }
 
-function filterTodo (e) {
+function filterTodo(e) {
     const todos = todoList.childNodes; //
 
     todos.forEach(function(todo) {
@@ -93,8 +93,13 @@ function filterTodo (e) {
 function saveLocalTodos(todo) {
     //check --- If I already have the data
     let todos;
-    if (local.storage) {
-        
+    if (localStorage.getItem('todos') === null) {
+        todos = [];
+    } else {
+        todos = JSON.parse(localStorage.getItem('todos')); // converts the todos to a JSON object
     }
+
+    todos.push(todo); //adds the todo in the array
+    localStorage.setItem("todos", JSON.stringify(todos));
 }
 

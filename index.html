@@ -12,31 +12,45 @@
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        <header>
-            <h1>Obere To-Do List</h1>
-        </header>
-
-        <form action="">
-            <label for="todo-input" title="todo-input"></label>
-                <input type="text" name="todo-input" id="todo-input" />
-                <button type="submit" title="submit" class="todo-button">
-                    <ion-icon name="add-circle"></ion-icon>
+        <div class="todo-wrapper">
+            <div id="toggle-theme-button" title="theme button">
+                <button class="light-toggle" title="light toggle">
+                    <ion-icon name="sunny-outline"></ion-icon>
                 </button>
-            <div class="select">
-            <select name="todos" class="filter-todos" title="todos">
-                <option value="all">All</option>
-                <option value="completed">Completed</option>
-                <option value="uncompleted">Uncompleted</option>
-            </select>
-        </div>
-        </form>
+                <button class="dark-toggle" title="dark toggle">
+                    <ion-icon name="moon"></ion-icon>
+                </button>
+            </div>
+            <header>
+                <h1>Obere To-Do List</h1>
+            </header>
+                       
+            <form action="" class="todo-form">
+                <p id="filter-warning">Sorry! no todo found to filter</p>
+                <label for="todo-input" title="todo-input" class="todo-input"></label>
+                    <input type="text" name="todo-input" id="todo-input" />
+                    <p id="warning">Sorry! you can't enter an empty todo item</p>
+                    <button type="submit" title="submit" class="todo-button">
+                        <ion-icon name="add-circle"></ion-icon>
+                    </button>
+                <div class="select">
+                <select name="todos" class="filter-todos" title="todos">
+                    <option value="all">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="uncompleted">Uncompleted</option>
+                </select>
+            </div>
+            </form>
 
-        
+            
 
-        <div class="todo-container">
-            <ol class="todo-list">
-                <!-- the li list created in main.js will be inserted here -->
-            </ol>
+            <div class="todo-container dark-mode">
+                <ol class="todo-list">
+                    <!-- the li list created in main.js will be inserted here -->
+                </ol>
+            </div>
+
+            
         </div>
         
     

@@ -1,18 +1,15 @@
 //Selectors
+const body = document.querySelector("body");
 const inputTodo = document.querySelector("#todo-input");
 const buttonAddTodo = document.querySelector(".todo-button");
 const listTodo = document.querySelector(".todo-list");
 const warningFilter = document.querySelector("#filter-warning")
-const warningInputTodo = document.querySelector("#warning");
+const warningInputTodo = document.querySelector("#input-warning");
 const optionFilterTodos = document.querySelector(".filter-todos");
-// const lightToggleMode = document.querySelector("#light-toggle");
-// const darkToggleMode = document.querySelector("#dark-toggle");
 const toggleThemeButton = document.querySelector("#toggle-theme-button");
 
 //Event Listeners
 document.addEventListener("DOMContentLoaded", getTodosFromLocalStorage); //saves the content when page refreshed/reload
-// lightToggleMode.addEventListener("click", lightToggleMode);
-// darkToggleMode.addEventListener("click", darkToggleMode);
 toggleThemeButton.addEventListener("click", darkOrLight);
 buttonAddTodo.addEventListener("click", addToTodoList);
 listTodo.addEventListener("click", deleteOrCheckTodo);
@@ -41,9 +38,6 @@ function addToTodoList(e) {
   newTodo.classList.add("todo-item");
   todoDiv.appendChild(newTodo);
 
-  //Add to local Storage
-  saveTodosLocally(inputTodo.value);
-
   //Check completed button
   const completeButton = document.createElement("button");
   completeButton.innerHTML =
@@ -61,6 +55,9 @@ function addToTodoList(e) {
   listTodo.appendChild(todoDiv);
 
   inputTodo.value = " "; //clears the inputTodo space
+  
+  //Add to local Storage
+  saveTodosLocally(inputTodo.value);
 }
 
 function deleteOrCheckTodo(e) {
@@ -79,35 +76,48 @@ function deleteOrCheckTodo(e) {
   }
 }
 
+// //Add darkOrLight mode on dynamically created elements
+// // Get all of the dynamically created elements
+// const todos = document.querySelectorAll(".todo-list");
+// // Loop through each todo
+// todos.forEach((todo) => {
+// // Check if the body has the dark-mode class
+// if (document.body.classList.contains("dark-mode")) {
+//   // Apply the dark mode styles to the todo
+//   todo.classList.add("dark-mode");
+// } else {
+//   // Remove the dark mode styles from the todo
+//   todo.classList.remove("dark-mode");
+// }
+// console.log(todos)
+// });
+    
+
 // Toggle between Dark and Light Mode
 function darkOrLight(e) {
-  const body = document.querySelector("body");
-  if (e.target.classList.contains('dark-toggle')) {
-    toggleThemeButton.classList.remove('light');
-    toggleThemeButton.classList.add('dark');
-    body.classList.remove('light-mode');
-    body.classList.add('dark-mode');
+  const todoContainer = document.querySelector(".todo-container");
 
-    //Add darkOrLight mode on dynamically created elements
-    const todoDiv = document.createElement("div");
-    todoDiv.classList.add("todo");
-    todoDiv.classList.remove("light-mode");
-    todoDiv.classList.add("dark-mode");
-
-    const newTodo = document.createElement("li");
-    newTodo.innerText = inputTodo.value;
-    newTodo.classList.add("todo-item");
-    todoDiv.appendChild(newTodo);
-    newTodo.classList.remove("light-mode");
-    newTodo.classList.add("dark-mode");
-
+  const newTodo = document.createElement("li");
+  newTodo.innerText = inputTodo.value;
+  newTodo.classList.add("list-item");
+  
+  if (e.target.classList.contains("dark-toggle")) {
+    toggleThemeButton.classList.remove("light-mode");
+    toggleThemeButton.classList.add("dark-mode");
+    body.classList.remove("light-mode");
+    body.classList.add("dark-mode");
+    todoContainer.classList.add("dark-mode");
+    console.log("dark mode applied to todo-container");
   } else {
-    toggleThemeButton.classList.remove('dark');
-    toggleThemeButton.classList.add('light');
-    body.classList.remove('dark-mode');
-    body.classList.add('light-mode');
+    toggleThemeButton.classList.remove("dark-mode");
+    toggleThemeButton.classList.add("light-mode");
+    body.classList.remove("dark-mode");
+    body.classList.add("light-mode");
+    todoContainer.classList.remove("dark-mode");
+    console.log("light mode applied to todo-container");
   }
 }
+
 
 function filterTodos() {
   

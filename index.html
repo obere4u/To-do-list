@@ -14,7 +14,7 @@
     <body>
         <div class="todo-wrapper">
             <div id="toggle-theme-button" title="theme button">
-                <button class="light-toggle" title="light toggle">
+                <button class="light-toggle dark-mode" title="light toggle">
                     <ion-icon name="sunny-outline"></ion-icon>
                 </button>
                 <button class="dark-toggle" title="dark toggle">
@@ -25,11 +25,11 @@
                 <h1>Obere To-Do List</h1>
             </header>
                        
-            <form action="" class="todo-form">
+            <form action="" class="todo-form dark-mode">
                 <p id="filter-warning">Sorry! no todo found to filter</p>
                 <label for="todo-input" title="todo-input" class="todo-input"></label>
                     <input type="text" name="todo-input" id="todo-input" />
-                    <p id="warning">Sorry! you can't enter an empty todo item</p>
+                    <p id="input-warning">Sorry! you can't enter an empty todo item</p>
                     <button type="submit" title="submit" class="todo-button">
                         <ion-icon name="add-circle"></ion-icon>
                     </button>
@@ -45,7 +45,7 @@
             
 
             <div class="todo-container dark-mode">
-                <ol class="todo-list">
+                <ol class="todo-list dark-mode">
                     <!-- the li list created in main.js will be inserted here -->
                 </ol>
             </div>

@@ -77,18 +77,21 @@ function deleteOrCheckTodo(e) {
   }
 }
 
-// Retrieve the theme mode from local storage
-let theme = localStorage.getItem("theme");
-
-// If the theme mode is not stored in local storage, set the default theme to light mode
-if (theme) {
-  // Apply the theme mode to the page
-  body.classList.add(theme);
-  todoContainer.classList.add(theme);
-  toggleThemeButton.classList.add(theme);
+// Set the default theme to the previously selected theme (if any), or to light mode
+const theme = localStorage.getItem("theme") || "light-mode";
+if (theme === "dark-mode") {
+  toggleThemeButton.classList.add("dark-mode");
+  body.classList.add("dark-mode");
+  todoContainer.classList.add("dark-mode");
+  warningFilter.classList.add("dark-mode");
+  warningInputTodo.classList.add("dark-mode");
+} else {
+  toggleThemeButton.classList.add("light-mode");
+  body.classList.add("light-mode");
+  todoContainer.classList.remove("dark-mode");
+  warningFilter.classList.remove("dark-mode");
+  warningInputTodo.classList.remove("dark-mode");
 }
-
-
 
 console.log("Current theme:", theme);
 
@@ -97,6 +100,10 @@ function darkOrLight(e) {
   if (e.target.classList.contains("dark-toggle")) {
     toggleThemeButton.classList.remove("light-mode");
     toggleThemeButton.classList.add("dark-mode");
+    warningFilter.classList.remove("light-mode");
+    warningFilter.classList.add("dark-mode");
+    warningInputTodo.classList.remove("light-mode");
+    warningInputTodo.classList.add("dark-mode");
     body.classList.remove("light-mode");
     body.classList.add("dark-mode");
     todoContainer.classList.add("dark-mode");
@@ -106,6 +113,10 @@ function darkOrLight(e) {
   } else {
     toggleThemeButton.classList.remove("dark-mode");
     toggleThemeButton.classList.add("light-mode");
+    warningFilter.classList.add("light-mode");
+    warningFilter.classList.remove("dark-mode");
+    warningInputTodo.classList.add("light-mode");
+    warningInputTodo.classList.remove("dark-mode");
     body.classList.remove("dark-mode");
     body.classList.add("light-mode");
     todoContainer.classList.remove("dark-mode");

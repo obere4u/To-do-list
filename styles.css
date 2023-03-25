@@ -18,60 +18,6 @@ body {
     transition: all 600ms ease-in;
 }
 
-/***Toggle theme***/
-body.dark-mode {
-    background: #252525;
-    color: #fff ;
-}
-
-
-.todo-container.dark-mode {
-    color: #fff !important;
-}
-
-.todo-container.dark-mode li {
-    color: #fff;
-}
-
-.trash-btn.dark-mode:hover {
-  background-color: #ff5555;
-  color: #fff;
-}
-
-#toggle-theme-button {
-    position: absolute;
-    top: 20px;
-    padding: 0 2rem;
-    display: flex;
-    right: 0;
-    gap: 2rem;
-}
-
-.light-toggle, .dark-toggle {
-    outline: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.3rem;
-    font-size: 1.2rem;
-    transition: all 600ms ease-in;
-}
-
-.dark-mode .light-toggle {
-    color: #fff;
-    border-color: #fff;
-}
-
-.light-toggle:hover {
-    transform: scale(1.1);
-    background: linear-gradient(rgba(204, 230, 238, 0.753), #4ea1b631);
-}
-
-.dark-toggle:hover {
-    background: #000;
-    color: #fff;
-    transform: scale(1.1);
-}
 
 header {
     font-size: 1.5rem;
@@ -243,4 +189,62 @@ select.form-control:focus {
     display: none;
 }
 
+/***Toggle theme***/
+body.dark-mode {
+    background: #252525;
+    color: #fff ;
+}
+
+
+.todo-container.dark-mode {
+    color: #fff !important;
+}
+
+.todo-container.dark-mode li {
+    color: #fff;
+}
+
+#filter-warning.dark-mode, #input-warning.dark-mode {
+    color: #fff !important;
+}
+
+.trash-btn.dark-mode:hover {
+  background-color: #ff5555;
+  color: #fff;
+}
+
+#toggle-theme-button {
+    position: absolute;
+    top: 20px;
+    padding: 0 2rem;
+    display: flex;
+    right: 0;
+    gap: 2rem;
+}
+
+.light-toggle, .dark-toggle {
+    outline: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem;
+    font-size: 1.2rem;
+    transition: all 600ms ease-in;
+}
+
+.dark-mode .light-toggle {
+    color: #fff;
+    border-color: #fff;
+}
+
+.light-toggle:hover {
+    transform: scale(1.1);
+    background: linear-gradient(rgba(204, 230, 238, 0.753), #4ea1b631);
+}
+
+.dark-toggle:hover {
+    background: #000;
+    color: #fff;
+    transform: scale(1.1);
+}
 

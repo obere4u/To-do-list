@@ -30,11 +30,7 @@ body.dark-mode {
 }
 
 .todo-container.dark-mode li {
-    color: #fff !important;
-}
-
-#dark-mode {
-    color: #fff !important;
+    color: #fff;
 }
 
 .trash-btn.dark-mode:hover {

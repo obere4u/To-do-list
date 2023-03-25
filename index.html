@@ -26,19 +26,23 @@
             </header>
                        
             <form action="" class="todo-form dark-mode">
-                <p id="filter-warning" class="dark-mode">Sorry! no todo found to filter</p>
-                <label for="todo-input" title="todo-input" class="todo-input"></label>
+                <div class="todo-input-container">
+                    <p id="filter-warning" class="dark-mode">Sorry! no todo found to filter</p>
+                    <label for="todo-input" title="todo-input" class="todo-input"></label>
                     <input type="text" name="todo-input" id="todo-input" />
-                    <p id="input-warning" class="dark-mode">Sorry! you can't enter an empty todo item</p>
+                    
                     <button type="submit" title="submit" class="todo-button">
                         <ion-icon name="add-circle"></ion-icon>
                     </button>
+                </div>
+                <p id="input-warning" class="dark-mode">Sorry! you can't enter an empty todo item</p>
                 <div class="select">
-                <select name="todos" class="filter-todos" title="todos">
-                    <option value="all">All</option>
-                    <option value="completed">Completed</option>
-                    <option value="uncompleted">Uncompleted</option>
-                </select>
+                    <select name="todos" class="filter-todos" title="todos">
+                        <option value="all">All</option>
+                        <option value="completed">Completed</option>
+                        <option value="uncompleted">Uncompleted</option>
+                    </select>
+                </div>
             </div>
             </form>
 

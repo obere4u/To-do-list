@@ -32,6 +32,7 @@ function addToTodoList(e) {
   //Todo div
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
+  
 
   //Create a List (li) item
   const newTodo = document.createElement("li");

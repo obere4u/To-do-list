@@ -22,6 +22,7 @@ body {
 header {
     font-size: 1.5rem;
     margin-top: 50px;
+    text-align: center;
 }
 
 header, form {
@@ -46,13 +47,14 @@ input:focus {
 }
 
 form button {
+    margin-left: -5px;
     padding: 0.5rem;
     border: none;
     font-size: 2rem;
     cursor: pointer;
     color: #004956a2;
     background: rgb(196, 222, 235);
-    transition: all 0.3s ease;
+    transition:  0.3s ease;
 }
 
 form button:hover {
@@ -60,31 +62,33 @@ form button:hover {
 }
 
 .todo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
+    width: 80vw;
     margin: 0 auto;
     
 }
 
 .todo-list {
-    width: 100%;
     margin-left: 30px;
 }
 
 .todo {
-    display: flex;      
+    display: flex;
+    flex-basis: 33.3%;
+    width: 100%;
 }
 
 .todo li {
-    flex: 1;
-    inline-size: 20rem;
-    overflow-wrap: break-word;
     padding: 1rem;
     font-size: 1.3rem;
     font-weight: 600;    
     color: #062930;
+}
+
+.todo-item {
+    outline: red solid 1px;
+    width: 200px;
+    flex: 1;
+    overflow-wrap: break-word;
 }
 
 .trash-btn, .complete-btn {
@@ -168,25 +172,23 @@ select.form-control:focus {
 
 #input-warning {
     position: absolute;
-    margin-top: 90px;
-    left: auto;
     letter-spacing: 1.5px;
     padding: 0.5rem;
     color: #ff0000;
     font-style: italic;
     display: none;
-
+    margin-top: 90px;
 }
 
 #filter-warning {
     position: absolute;
-    top: 150px;
     font-size: 1.5rem;
     padding: 1rem;
     color: #ff0000;
     font-style: italic;
     letter-spacing: 1.5px;
     display: none;
+    margin-top: -60px;
 }
 
 /***Toggle theme***/
@@ -248,3 +250,27 @@ body.dark-mode {
     transform: scale(1.1);
 }
 
+
+@media screen and (max-width: 767px) {
+  form {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+
+  #input-warning {
+    position: relative;
+    margin-top: 0px;
+  }
+
+  #filter-warning {
+    padding: 25px;
+    position: relative;
+    /* left: 100px; */
+  }
+
+  .todo-item {
+    width: 200px;
+    overflow-wrap: break-word;
+}
+
+}

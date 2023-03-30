@@ -236,7 +236,7 @@ body.dark-mode {
   transition: all 5s ease;
 }
 
-.dark-toggle .dark-mode {
+.dark-toggle.dark-mode {
   color: #363636;
 }
 

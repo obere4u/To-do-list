@@ -113,7 +113,6 @@ function darkOrLight(e) {
     body.classList.remove("light-mode");
     body.classList.add("dark-mode");
     todoContainer.classList.add("dark-mode");
-    toggleThemeButton.classList.add("dark-mode");
     localStorage.setItem("theme", "dark-mode"); // save the current theme mode in local storage
   } else {
     toggleThemeButton.classList.remove("dark-mode");

@@ -12,38 +12,45 @@
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
+        <div id="toggle-theme-button" title="theme button">
+            <button class="light-toggle dark-mode" title="light toggle">
+                <ion-icon name="sunny-outline"></ion-icon>
+            </button>
+            <button class="dark-toggle" title="dark toggle">
+                <ion-icon name="moon"></ion-icon>
+            </button>
+        </div>
         <div class="todo-wrapper">
-            <div id="toggle-theme-button" title="theme button">
-                <button class="light-toggle dark-mode" title="light toggle">
-                    <ion-icon name="sunny-outline"></ion-icon>
-                </button>
-                <button class="dark-toggle" title="dark toggle">
-                    <ion-icon name="moon"></ion-icon>
-                </button>
-            </div>
             <header>
-                <h1>Obere To-Do List</h1>
+                <h1>To-Do App</h1>
             </header>
                        
             <form action="" class="todo-form dark-mode">
-                <div class="todo-input-container">
-                    <p id="filter-warning" class="dark-mode">Sorry! no todo found to filter</p>
-                    <label for="todo-input" title="todo-input" class="todo-input"></label>
-                    <input type="text" name="todo-input" id="todo-input" />
-                    
-                    <button type="submit" title="submit" class="todo-button">
-                        <ion-icon name="add-circle"></ion-icon>
-                    </button>
+                <p id="filter-warning" class="dark-mode">Sorry! no todo found to filter</p>
+                <div class="todo-input-wrapper">
+                    <div class="todo-input-container">
+                        <label for="todo-input" title="todo-input" class="todo-input"></label>
+                        <input type="text" name="todo-input" id="todo-input" placeholder="Enter your Todo" />
+                        <div class="input-buttons">
+                            <button id="voice-command-button" class="voice-command-btn" title="voice-command">
+                                <ion-icon name="mic-sharp"></ion-icon>
+                            </button>
+                            <button type="submit" title="submit" class="add-button">
+                                <ion-icon name="add-circle"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <p id="input-warning" class="dark-mode">Sorry! you can't enter an empty todo item</p>
+                    <div class="select">                    
+                        <select name="todos" class="filter-todos" title="todos">
+                            <option value="all">All</option>
+                            <option value="completed">Completed</option>
+                            <option value="uncompleted">Uncompleted</option>
+                        </select>
+                    </div>
                 </div>
-                <p id="input-warning" class="dark-mode">Sorry! you can't enter an empty todo item</p>
-                <div class="select">
-                    <select name="todos" class="filter-todos" title="todos">
-                        <option value="all">All</option>
-                        <option value="completed">Completed</option>
-                        <option value="uncompleted">Uncompleted</option>
-                    </select>
-                </div>
-            </div>
+                
+                
             </form>
 
             

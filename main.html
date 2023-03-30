@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>A To-Do List</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="todo-wrapper">
+      <header>
+        <h1>Obere To-Do App</h1>
+        <div id="toggle-theme-button" title="theme button">
+          <button class="light-toggle dark-mode" title="light toggle">
+            <ion-icon name="sunny-outline"></ion-icon>
+          </button>
+          <button class="dark-toggle" title="dark toggle">
+            <ion-icon name="moon"></ion-icon>
+          </button>
+        </div>
+      </header>
+
+      <form action="" class="todo-form dark-mode">
+        <div class="todo-input-container">
+          <div>
+            <p id="filter-warning" class="dark-mode">Sorry! no todo found to filter</p>
+            <p id="input-warning" class="dark-mode">Sorry! you can't enter an empty todo item</p>
+            <div class="input-wrapper">
+              <label for="todo-input" title="todo-input" class="todo-input"></label>
+              <input type="text" name="todo-input" id="todo-input" placeholder="Enter a new task" />
+              <button type="submit" title="submit" class="todo-button">
+                <ion-icon name="add-circle"></ion-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="select">
+          <select name="todos" class="filter-todos" title="todos">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="uncompleted">Uncompleted</option>
+          </select>
+        </div>
+      </form>
+
+      <div class="todo-container dark-mode">
+        <ol class="todo-list dark-mode">
+          <!-- the li list created in main.js will be inserted here -->
+        </ol>
+      </div>
+
+      <button id="voice-command-button" class="voice-command-btn" title="voice-command">
+        <ion-icon name="mic-sharp"></ion-icon>
+      </button>
+    </div>
+
+    <script src="./main.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>

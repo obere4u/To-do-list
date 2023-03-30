@@ -19,7 +19,7 @@ inputTodo.addEventListener("keydown", addTodoList); //checks if the event was tr
 listTodo.addEventListener("click", deleteOrCheckTodo);
 optionFilterTodos.addEventListener("click", filterTodos);
 voiceCommandButton.addEventListener("click", startSpeechRecognition);
-setTimeout(toggleThemeButton, 1 * 1000);
+
 
 //Functions
 //Add to List
@@ -127,10 +127,10 @@ function darkOrLight(e) {
     todoContainer.classList.remove("dark-mode");
     localStorage.setItem("theme", "light-mode"); // save the current theme mode in local storage
   }
-  
-  const newTodo = document.createElement("li");
-  newTodo.innerText = inputTodo.value;
-  newTodo.classList.add("list-item");
+  if ("ontouchstart" in window) {
+    // check if user is on mobile device
+    toggleThemeButton.style.color = toggleThemeButton.classList.contains("dark-mode") ? "#ffffff" : "#000000";
+  }
 }
 
 function filterTodos() {
@@ -231,6 +231,7 @@ function getTodosFromLocalStorage() {
   });
   //Add to local Storage
   saveTodosLocally(todos);
+  localStorage.clear();
 };
 
 // Function to start speech recognition

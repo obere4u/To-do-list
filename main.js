@@ -104,6 +104,7 @@ if (theme === "dark-mode") {
 
 // Toggle between Dark and Light Mode
 function darkOrLight(e) {
+  e.preventDefault();
   if (e.target.classList.contains("dark-toggle")) {
     toggleThemeButton.classList.remove("light-mode");
     toggleThemeButton.classList.add("dark-mode");
@@ -126,10 +127,6 @@ function darkOrLight(e) {
     body.classList.add("light-mode");
     todoContainer.classList.remove("dark-mode");
     localStorage.setItem("theme", "light-mode"); // save the current theme mode in local storage
-  }
-  if ("ontouchstart" in window) {
-    // check if user is on mobile device
-    toggleThemeButton.style.color = toggleThemeButton.classList.contains("dark-mode") ? "#ffffff" : "#000000";
   }
 }
 

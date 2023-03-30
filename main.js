@@ -19,6 +19,7 @@ inputTodo.addEventListener("keydown", addTodoList); //checks if the event was tr
 listTodo.addEventListener("click", deleteOrCheckTodo);
 optionFilterTodos.addEventListener("click", filterTodos);
 voiceCommandButton.addEventListener("click", startSpeechRecognition);
+setTimeout(toggleThemeButton, 1 * 1000);
 
 //Functions
 //Add to List

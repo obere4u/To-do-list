@@ -236,6 +236,10 @@ body.dark-mode {
   transition: all 5s ease;
 }
 
+.dark-toggle {
+  color: #363636;
+}
+
 .light-toggle {
   color: #F5F5F5;
   font-weight: 800;

@@ -240,6 +240,11 @@ body.dark-mode {
   color: #363636;
 }
 
+.dark-toggle:focus {
+  color: #333;
+}
+
+
 .light-toggle {
   color: #F5F5F5;
   font-weight: 800;

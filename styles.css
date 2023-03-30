@@ -10,7 +10,7 @@ body {
   font-family: 'Bona Nova', sans-serif;
   background-color: #F5F5F5;
   height: 100vh;
-  transition: all 1500ms ease-in;
+  transition: all 0.8s ease;
 }
 
 .todo-wrapper {
@@ -233,7 +233,7 @@ body.dark-mode {
   border: none;
   background: none;
   cursor: pointer;
-  transition: all 5ms ease;
+  transition: all 5s ease;
 }
 
 .light-toggle {

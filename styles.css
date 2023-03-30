@@ -275,6 +275,10 @@ ion-icon {
     margin-left: auto;
   }
 
+  .todo-item {
+    font-size: 1.3rem;
+  }
+
   #input-warning {
     position: absolute;
     margin-top: 45px;
@@ -300,6 +304,10 @@ ion-icon {
 
   #toggle-theme-button {
     margin-right: 50px;
+  }
+
+  .todo-item {
+    font-size: 1.3rem;
   }
 }
 

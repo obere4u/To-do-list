@@ -139,7 +139,7 @@ header h1{
 
 @media (max-width: 559px) {
   .filter-todos_select select {
-    width: 97%;
+    width: 100%;
   }
 }
 

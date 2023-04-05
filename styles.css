@@ -110,8 +110,17 @@ header h1{
 
 @media (max-width: 559px) {
   #filter-warning {
-  margin-left: 4%;
-}
+    margin-left: 4%;
+  }
+
+  .todo-container input::placeholder {
+    font-size: 1rem;
+  }
+
+  .input-buttons {
+    gap: 0.5rem;
+    margin-right: 35px;
+  }
 }
 
 .filter-todos_select select {

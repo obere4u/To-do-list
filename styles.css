@@ -101,7 +101,7 @@ header h1{
   display: none;
 }
 
-.select select {
+.filter-todos_select select {
   appearance: none;
   border: none;
   outline: none;
@@ -116,36 +116,36 @@ header h1{
 }
 
 @media (max-width: 559px) {
-  .select select {
-    width: 94%;
+  .filter-todos_select select {
+    width: 99%;
   }
 }
 
-select.form-control:focus {
+.filter-todos_select.form-control:focus {
   outline: none;
   background: none;
 }
 
-.select::after {
+.filter-todos_select::after {
   content: "\25BC";
   background: #fff;
   pointer-events: none;
-  padding: 1rem;
+  /* padding: 1rem; */
   color: #076158;
   margin-left: -40px;
 }
 
-.select:hover::after, option:hover {
+.filter-todos_select:hover::after, option:hover {
   color: #1f867c
 }
 
-.select {
+.filter-todos_select {
   margin: 1rem;
   position: relative;
   overflow: hidden;
 }
 
-select.form-control:focus {
+.filter-todos_select.form-control:focus {
   box-shadow: none !important;
 }
 

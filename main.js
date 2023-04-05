@@ -1,5 +1,5 @@
 //Selectors
-const body = document.querySelector("body");
+const todoWrapper = document.querySelector(".todo-wrapper");
 const todoContainer = document.querySelector(".todo-container");
 const inputTodo = document.querySelector("#todo-input");
 const buttonAddTodo = document.querySelector(".add-button");
@@ -7,6 +7,8 @@ const listTodo = document.querySelector(".todo-list");
 const warningFilter = document.querySelector("#filter-warning")
 const warningInputTodo = document.querySelector("#input-warning");
 const optionFilterTodos = document.querySelector(".filter-todos");
+const darkModeButton = document.querySelector(".dark-toggle");
+const lightModeButton = document.querySelector(".light-toggle");
 const toggleThemeButton = document.querySelector("#toggle-theme-button");
 const voiceCommandButton = document.querySelector("#voice-command-button");
 
@@ -90,15 +92,20 @@ function deleteOrCheckTodo(e) {
 const theme = localStorage.getItem("theme") || "light-mode";
 if (theme === "dark-mode") {
   toggleThemeButton.classList.add("dark-mode");
-  body.classList.add("dark-mode");
+  todoWrapper.classList.add("dark-mode");
   todoContainer.classList.add("dark-mode");
   warningFilter.classList.add("dark-mode");
+  darkModeButton.style.display = "none";
+  lightModeButton.style.display = "block";
   warningInputTodo.classList.add("dark-mode");
+
 } else {
   toggleThemeButton.classList.add("light-mode");
-  body.classList.add("light-mode");
+  todoWrapper.classList.add("light-mode");
   todoContainer.classList.remove("dark-mode");
   warningFilter.classList.remove("dark-mode");
+  darkModeButton.style.display = "block";
+  lightModeButton.style.display = "none";
   warningInputTodo.classList.remove("dark-mode");
 }
 
@@ -112,9 +119,11 @@ function darkOrLight(e) {
     warningFilter.classList.add("dark-mode");
     warningInputTodo.classList.remove("light-mode");
     warningInputTodo.classList.add("dark-mode");
-    body.classList.remove("light-mode");
-    body.classList.add("dark-mode");
+    todoWrapper.classList.remove("light-mode");
+    todoWrapper.classList.add("dark-mode");
     todoContainer.classList.add("dark-mode");
+    darkModeButton.style.display = "none";
+    lightModeButton.style.display = "block";
     localStorage.setItem("theme", "dark-mode"); // save the current theme mode in local storage
   } else {
     toggleThemeButton.classList.remove("dark-mode");
@@ -123,9 +132,11 @@ function darkOrLight(e) {
     warningFilter.classList.remove("dark-mode");
     warningInputTodo.classList.add("light-mode");
     warningInputTodo.classList.remove("dark-mode");
-    body.classList.remove("dark-mode");
-    body.classList.add("light-mode");
+    todoWrapper.classList.remove("dark-mode");
+    todoWrapper.classList.add("light-mode");
     todoContainer.classList.remove("dark-mode");
+    darkModeButton.style.display = "block";
+    lightModeButton.style.display = "none";
     localStorage.setItem("theme", "light-mode"); // save the current theme mode in local storage
   }
 }

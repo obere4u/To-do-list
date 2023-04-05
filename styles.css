@@ -10,7 +10,6 @@ body {
   font-family: 'Bona Nova', sans-serif;
   background-color: #F5F5F5;
   height: 100vh;
-  transition: all 0.8s ease;
 }
 
 .todo-wrapper {
@@ -111,6 +110,12 @@ header h1{
   margin-right: auto;
 }
 
+@media (max-width: 559px) {
+  .select select {
+    width: 94%;
+  }
+}
+
 select.form-control:focus {
   outline: none;
   background: none;
@@ -170,7 +175,7 @@ select.form-control:focus {
   font-size: 1.8rem;
   padding: 0.3rem;
   cursor: pointer;
-  transition: all 0.8s ease-in-out ;
+  transition: all 0.5s ;
 }
 
 .complete-btn {
@@ -193,7 +198,7 @@ select.form-control:focus {
 }
 
 /*Toggle theme*/
-body.dark-mode {
+.todo-wrapper.dark-mode {
   background: #363636;
   color: #fff ;
 }
@@ -212,13 +217,8 @@ body.dark-mode {
 }
 
 #toggle-theme-button {
-  position: absolute;
-  display: flex;
-  gap: 1rem;
-  top: 52px;
-  right: 0;
-  margin-right: 30px;
-  transition: all 600ms ease-in;
+  margin-bottom: 50px;
+  margin-left: 95%;
 }
 
 #toggle-theme-button ion-icon {
@@ -233,11 +233,12 @@ body.dark-mode {
   border: none;
   background: none;
   cursor: pointer;
-  transition: all 5s ease;
+  transition: all 0.5s ease;
 }
 
 .dark-toggle.dark-mode {
   color: #363636;
+  display: none;
 }
 
 .dark-toggle:focus {
@@ -245,18 +246,18 @@ body.dark-mode {
 }
 
 
-.light-toggle {
+.light-toggle.dark-mode {
   color: #F5F5F5;
   font-weight: 800;
+  display: none;
 }
 
 .light-toggle:hover {
-  transform: scale(1.3);
+  transform: scale(1.1);
   border-radius: 5px;
 }
 
 .dark-toggle:hover {
-  color: #fff;
   transform: scale(1.1);
   border-radius: 5px;
 }
@@ -303,16 +304,13 @@ ion-icon {
 @media  screen and (min-width: 800px) {
   
   .todo-wrapper {
-    width: 700px;
+    max-width: 800px;
     margin: 0 auto;
   }
   
   .todo-wrapper {
     min-width: 650px;
-  }
-
-  #toggle-theme-button {
-    margin-right: 50px;
+    right: 0;
   }
 
   .todo-item {

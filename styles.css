@@ -141,9 +141,6 @@ header h1{
   .filter-todos_select select {
     width: 97%;
   }
-  .filter-todos_select {
-    width: 97%;
-  }
 }
 
 .filter-todos_select.form-control:focus {

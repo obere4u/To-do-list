@@ -30,7 +30,13 @@ function addToTodoList(e) {
   if (e.type === "click" || (e.type === "keydown" && e.key === "Enter")) {
     e.preventDefault(); //stops the event from acting in it's default setting
 
-    const todoText = inputTodo.value.trim();
+    let todoText = "";
+    if (e.results && e.results[0]) {
+      todoText = e.results[0][0].transcript.trim(); //.trim() removes any whitespace
+    }else {
+      todoText = inputTodo.value.trim();
+    }
+    
     if (todoText === "") {
       warningInputTodo.style.display = "block";
       return;
@@ -67,7 +73,7 @@ function addToTodoList(e) {
 
     inputTodo.value = ""; //clears the inputTodo space
     //Add to local Storage
-    saveTodosLocally(newTodo.innerText);
+    saveTodoLocally(newTodo.innerText);
   }
 }
 
@@ -88,27 +94,6 @@ function deleteOrCheckTodo(e) {
   
 }
 
-// Set the default theme to the previously selected theme (if any), or to light mode
-const theme = localStorage.getItem("theme") || "light-mode";
-if (theme === "dark-mode") {
-  toggleThemeButton.classList.add("dark-mode");
-  todoWrapper.classList.add("dark-mode");
-  todoContainer.classList.add("dark-mode");
-  warningFilter.classList.add("dark-mode");
-  darkModeButton.style.display = "none";
-  lightModeButton.style.display = "block";
-  warningInputTodo.classList.add("dark-mode");
-
-} else {
-  toggleThemeButton.classList.add("light-mode");
-  todoWrapper.classList.add("light-mode");
-  todoContainer.classList.remove("dark-mode");
-  warningFilter.classList.remove("dark-mode");
-  darkModeButton.style.display = "block";
-  lightModeButton.style.display = "none";
-  warningInputTodo.classList.remove("dark-mode");
-}
-
 // Toggle between Dark and Light Mode
 function darkOrLight(e) {
   e.preventDefault();
@@ -124,7 +109,6 @@ function darkOrLight(e) {
     todoContainer.classList.add("dark-mode");
     darkModeButton.style.display = "none";
     lightModeButton.style.display = "block";
-    localStorage.setItem("theme", "dark-mode"); // save the current theme mode in local storage
   } else {
     toggleThemeButton.classList.remove("dark-mode");
     toggleThemeButton.classList.add("light-mode");
@@ -137,7 +121,6 @@ function darkOrLight(e) {
     todoContainer.classList.remove("dark-mode");
     darkModeButton.style.display = "block";
     lightModeButton.style.display = "none";
-    localStorage.setItem("theme", "light-mode"); // save the current theme mode in local storage
   }
 }
 
@@ -184,7 +167,7 @@ function filterTodos() {
   })
 }
 
-function saveTodosLocally(todo) {
+function saveTodoLocally(todo) {
   //Check if the data exist in the local storage
   let todos;
 
@@ -238,7 +221,7 @@ function getTodosFromLocalStorage() {
 
   });
   //Add to local Storage
-  saveTodosLocally(todos);
+  saveTodoLocally(todos);
   localStorage.clear();
 };
 
@@ -262,10 +245,20 @@ function startSpeechRecognition(e) {
     addToTodoList(e);
     console.log("object");
   };
+  /*
+    This function takes the results from detected speech and loops through each of them, concatenating the recognized speech text into a single string called "transcript". It then sets the value of the "inputTodo" element to the "transcript" string
+    After setting the input value, the function calls two other functions: "deleteOrCheckTodo" and "addToTodoList"
+  */
 
   recognition.onerror = function (e) {
+    recognition.stop(); // stops the speech process if there's error
     console.error("Speech recognition error:", e.error);
   };
-  recognition.start();
+
+  /*
+    If there is an error with the speech recognition software, the function defined in "recognition.onerror" will be executed and an error message will be logged to the console
+  */
+
+  recognition.start(); //starts the speech recognition process
 }
 

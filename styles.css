@@ -225,7 +225,7 @@ header h1{
 
 #toggle-theme-button {
   margin-bottom: 50px;
-  margin-left: 95%;
+  margin-left: 92%;
 }
 
 #toggle-theme-button ion-icon {
@@ -245,7 +245,7 @@ header h1{
 
 .dark-toggle.dark-mode {
   color: #363636;
-  display: none;
+  /* display: none; */
 }
 
 .dark-toggle:focus {

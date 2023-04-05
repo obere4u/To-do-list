@@ -15,10 +15,10 @@
         
         <div class="todo-wrapper dark-mode">
             <div id="toggle-theme-button" title="theme button">
-                <button class="light-toggle dark-mode" title="light toggle">
+                <button class="light-toggle dark-mode light-mode" title="light toggle">
                     <ion-icon name="sunny-outline"></ion-icon>
                 </button>
-                <button class="dark-toggle dark-mode" title="dark toggle">
+                <button class="dark-toggle dark-mode light-mode" title="dark toggle">
                     <ion-icon name="moon"></ion-icon>
                 </button>
             </div>
@@ -26,8 +26,8 @@
                 <h1>To-Do App</h1>
             </header>
                        
-            <form action="" class="todo-form dark-mode">
-                <p id="filter-warning" class="dark-mode">Sorry! no todo found to filter</p>
+            <form action="" class="todo-form dark-mode light-mode">
+                <p id="filter-warning" class="dark-mode  light-mode">Sorry! no todo found to filter</p>
                 <div class="todo-input-wrapper">
                     <div class="todo-input-container">
                         <label for="todo-input" title="todo-input" class="todo-input"></label>
@@ -41,7 +41,7 @@
                             </button>
                         </div>
                     </div>
-                    <p id="input-warning" class="dark-mode">Sorry! you can't enter an empty todo item</p>
+                    <p id="input-warning" class="dark-mode  light-mode">Sorry! you can't enter an empty todo item</p>
                     <div class="filter-todos_select">                    
                         <select name="todos" class="filter-todos" title="todos">
                             <option value="all">All</option>
@@ -56,8 +56,8 @@
 
             
 
-            <div class="todo-container dark-mode">
-                <ol class="todo-list dark-mode">
+            <div class="todo-container dark-mode  light-mode">
+                <ol class="todo-list dark-mode  light-mode">
                     <!-- the li list created in main.js will be inserted here -->
                 </ol>
             </div>

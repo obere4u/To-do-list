@@ -16,8 +16,8 @@ const voiceCommandButton = document.querySelector("#voice-command-button");
 //Event Listeners
 document.addEventListener("DOMContentLoaded", getTodosFromLocalStorage); //saves the content when page refreshed/reload
 toggleThemeButton.addEventListener("click", darkOrLight);
-buttonAddTodo.addEventListener("click", addTodoList); //checks if the addTodo button was clicked
-inputTodo.addEventListener("keydown", addTodoList); //checks if the event was triggered by either the button click or the Enter key press and proceeds with adding the todo accordingly
+buttonAddTodo.addEventListener("click", addToTodoList); //checks if the addTodo button was clicked
+inputTodo.addEventListener("keydown", addToTodoList); //checks if the event was triggered by either the button click or the Enter key press and proceeds with adding the todo accordingly
 listTodo.addEventListener("click", deleteOrCheckTodo);
 optionFilterTodos.addEventListener("click", filterTodos);
 voiceCommandButton.addEventListener("click", startSpeechRecognition);
@@ -25,7 +25,7 @@ voiceCommandButton.addEventListener("click", startSpeechRecognition);
 
 //Functions
 //Add to List
-function addTodoList(e) {
+function addToTodoList(e) {
   // Check if the event was triggered by the "Add Todo" button or the Enter key
   if (e.type === "click" || (e.type === "keydown" && e.key === "Enter")) {
     e.preventDefault(); //stops the event from acting in it's default setting
@@ -243,34 +243,29 @@ function getTodosFromLocalStorage() {
 };
 
 // Function to start speech recognition
-function startSpeechRecognition() {
-  const recognition = new window.webkitSpeechRecognition();
-  recognition.lang = "en-US";
-
-  recognition.onresult = deleteOrCheckTodo;
-  recognition.start();
-}
 
 function startSpeechRecognition(e) {
-  e.preventDefault();
-  const recognition = new window.webkitSpeechRecognition();
-  recognition.continuous = false;
-  recognition.lang = "en-US";
-  recognition.interimResults = false;
-  recognition.maxAlternatives = 1;
-  recognition.onresult = deleteOrCheckTodo;
-  recognition.start();
+  e.preventDefault(); //tells the computer not to do its normal thing when you click a button, but instead to listen to your voice
+  const recognition = new window.webkitSpeechRecognition(); //creates a new "recognition" object that helps the computer understand what you're saying
+  recognition.continuous = false; //tells the computer to stop listening after you finish talking, so it doesn't keep listening forever
+  recognition.lang = "en-US"; //tells the computer to listen to English words, so it can understand what you're saying
+  recognition.interimResults = false; //tells the computer to only show you the final result, not any "interim" results that might be incorrect
+  recognition.maxAlternatives = 1; //tells the computer to only give you one option for what you said, so it doesn't get confused if you say multiple things at once
 
   recognition.onresult = function (e) {
-    const transcript = e.results[0][0].transcript.trim();
+    let transcript = "";
+    for (let i = 0; i < e.results.length; i++) {
+      transcript += e.results[i][0].transcript.trim() + " ";
+    }
     inputTodo.value = transcript;
     deleteOrCheckTodo(e);
     addToTodoList(e);
-    console.log("first");
+    console.log("object");
   };
 
   recognition.onerror = function (e) {
     console.error("Speech recognition error:", e.error);
   };
+  recognition.start();
 }
 

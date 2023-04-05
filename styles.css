@@ -30,7 +30,6 @@ header h1{
  min-width: 85%;
  padding: 0.5rem;
  margin: 0 auto;
- outline: red solid;
 }
 
 @media (max-width: 559px) {

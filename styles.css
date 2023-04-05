@@ -13,8 +13,9 @@ body {
 }
 
 .todo-wrapper {
+  right: 0;
   left: 0;
-  width: 94%;
+  min-width: 94%;
   padding: 1rem;
   height: 100vh;
 }

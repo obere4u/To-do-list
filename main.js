@@ -1,7 +1,6 @@
 //Selectors
 
 const body = document.querySelector('body');
-console.log(body);
 const todoWrapper = document.querySelector(".todo-wrapper");
 const todoContainer = document.querySelector(".todo-container");
 const inputTodo = document.querySelector("#todo-input");
@@ -25,6 +24,9 @@ listTodo.addEventListener("click", deleteOrCheckTodo);
 optionFilterTodos.addEventListener("click", filterTodos);
 voiceCommandButton.addEventListener("click", startSpeechRecognition);
 
+window.onload = function() {
+  const ionIcons = document.querySelectorAll("ion-icon");
+}
 
 //Functions
 //Add to List

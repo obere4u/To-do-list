@@ -1,4 +1,7 @@
 //Selectors
+
+const body = document.querySelector('body');
+console.log(body);
 const todoWrapper = document.querySelector(".todo-wrapper");
 const todoContainer = document.querySelector(".todo-container");
 const inputTodo = document.querySelector("#todo-input");
@@ -104,9 +107,11 @@ function darkOrLight(e) {
     warningFilter.classList.add("dark-mode");
     warningInputTodo.classList.remove("light-mode");
     warningInputTodo.classList.add("dark-mode");
-    todoWrapper.classList.remove("light-mode");
-    todoWrapper.classList.add("dark-mode");
+    body.classList.remove("light-mode");
+    body.classList.add("dark-mode");
     todoContainer.classList.add("dark-mode");
+    listTodo.classList.add("dark-mode");
+    listTodo.classList.remove("light-mode");
     darkModeButton.style.display = "none";
     lightModeButton.style.display = "block";
   } else {
@@ -116,8 +121,10 @@ function darkOrLight(e) {
     warningFilter.classList.remove("dark-mode");
     warningInputTodo.classList.add("light-mode");
     warningInputTodo.classList.remove("dark-mode");
-    todoWrapper.classList.remove("dark-mode");
-    todoWrapper.classList.add("light-mode");
+    body.classList.remove("dark-mode");
+    body.classList.add("light-mode");
+    listTodo.classList.remove("dark-mode");
+    listTodo.classList.add("light-mode");
     todoContainer.classList.remove("dark-mode");
     darkModeButton.style.display = "block";
     lightModeButton.style.display = "none";
